@@ -2,18 +2,17 @@
 
 #include "DriverJeuLaser.h"
 #include "ServiceJeuLaser.h"
-#include "../DFT/DFT.h"
-#include "../DFT/DFT.c"
-#include "../DFT/Signal_float.c"
-#include <complex.h>
+#include "DFT.h"
+#include "Signal_4_12.h"
+
 
 extern void GestionSon_callback(void);
-
 extern int PeriodeSonMicroSec;
-
 extern int SortieSon; 
 
+extern unsigned short int LeSignal[];
 
+int output[64]; //global pour pouvoir l'observer
 
 int main(void)
 {
@@ -32,16 +31,18 @@ ServJeuLASER_Son_Init(PeriodeSonMicroSec,0,GestionSon_callback); //PeriodeSonMic
 
 //============================================================================	
 	
+for (int k = 0; k < 64; k++){
+		output[k] = dft(LeSignal, k);
+}
 
-	
 	
 while	(1)
 	{
 		
 	}
 	
-	float output;
-	dft(LeSignal, &output);
+	
+	
 	
 }
 

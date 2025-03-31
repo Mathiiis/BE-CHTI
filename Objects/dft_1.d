@@ -1,2 +1,2 @@
-./objects/dft_1.o: DFT\DFT.c DFT\DFT.h DFT\CosSin_float.c \
-  DFT\Signal_float.c
+./objects/dft_1.o: DFT\DFT.c DFT\DFT.h \
+  Service_DFT_Fract\CosSin_Fract_1_15.h
